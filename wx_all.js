@@ -1,4 +1,30 @@
-/*
+var show_toast = function(title,success=undefined,fail=undefined)
+{
+    if(typeof(wx) === 'undefined')
+        return;
+
+    wx.showToast({
+        title:title,
+        mask:true,
+        success:success,
+        fail:fail
+    });
+}
+
+var show_modal = function(title,content,confirmText,showCancel,success)
+{
+    if(typeof(wx) === 'undefined')
+        return;
+
+    wx.showModal({
+        title: title,
+        content: content,
+        confirmText: confirmText,
+        showCancel: showCancel,
+        success:success
+    });
+}
+
 /*
 *  wx_banner.js
 **/
@@ -42,35 +68,56 @@ exports.show_banner_ad = show_banner_ad;
 *   login
 */
 
-var show_get_user_info_btn = function()
-{
-    var w = 200,h = 40;
-    var left = window.screen.width / 2 - w / 2;
-    var top = window.screen.height / 2 + h / 2;
-    let btn = wx.createUserInfoButton({
-        type: 'text',
-        text: '获取用户信息',
-        style: {
-            left: left,
-            top: top,
-            width: w,
-            height: h,
-            lineHeight: 40,
-            backgroundColor: '#ffffff',
-            color: '#000000',
-            borderColor: '#000000',
-            borderWidth: 4,
-            textAlign: 'center',
-            fontSize: 16,
-            borderRadius: 4
-        }
-    });
+var get_user_info = function(){
+    if(typeof(wx) === 'undefined')
+        return;
+    let sysInfo = wx.getSystemInfoSync();
+    let sdkVersion = sysInfo.SDKVersion;
 
-    btn.onTap((res)=>{
-        get_user_info_callback(res);
-        btn.destroy();
-        wx_login();
-    });
+    let width = sysInfo.screenWidth;
+	let height = sysInfo.screenHeight;
+
+    if (sdkVersion >= "2.0.1") {
+        var button = wx.createUserInfoButton({
+            type: 'text',
+            text: '',
+            style: {
+                left: width*wx_sdk.config.user_info_btn.x,
+                top: height*wx_sdk.config.user_info_btn.y,
+                width: width*wx_sdk.config.user_info_btn.w,
+                height: height*wx_sdk.config.user_info_btn.h,
+            }
+        });
+        button.onTap((res) => {
+            if(res.userInfo){
+                console.log("用户授权:", res);
+                var userInfo = res.userInfo;
+                button.destroy();
+                wx.sdk.get_user_info_callback(userInfo);
+                wx_login();
+            }else{
+                console.log("拒绝授权");
+            }
+        });
+    }
+    else 
+    {
+        wx.getUserInfo({
+            withCredentials: true,
+            success: res => {
+                var userInfo = res.userInfo;
+                wx.sdk.get_user_info_callback(userInfo);
+                wx_login();
+            },
+            fail: res => {
+                show_modal('友情提醒',
+                '请允许微信获得授权!',
+                "授权",
+                false,
+                function(res) {console.log('未获得微信授权！')});
+            }
+        });
+    }
 }
 
 var wx_login = function()
@@ -81,7 +128,7 @@ var wx_login = function()
         success: function (res) 
         {
             load_account();
-            login_callback(res);
+            wx_sdk.login_callback(res);
         }
     });
 };
@@ -119,7 +166,7 @@ var login = function()
             if (authSetting['scope.userInfo'] === true) 
             {
                 // 用户已授权，可以直接调用相关 API
-                wx_login(login_callback);
+                wx_login();
             } 
             else if (authSetting['scope.userInfo'] === false)
             {
@@ -129,8 +176,8 @@ var login = function()
             else 
             {
                 // 未询问过用户授权，调用相关 API 或者 wx.authorize 会弹窗询问用户
-                authorize_callback(res);
-                show_get_user_info_btn();
+                wx_sdk.authorize_callback(res);
+                get_user_info();
             }
         },
         fail:function(res)
@@ -206,11 +253,11 @@ var load_account = function(){
         key:'account',
         success:function(res)
         {
-            load_account_success_callback(res);
+            wx_sdk.load_account_success_callback(res);
         },
         fail:function(res)
         {
-            load_account_fail_callback(res);
+            wx_sdk.load_account_fail_callback(res);
             save_account();
         }
     });
@@ -282,12 +329,12 @@ function create_video_ad_impl(adUnitId)
         if (res && res.isEnded || res === undefined) 
         {
             // 正常播放结束，可以下发游戏奖励
-            close_video_callback();
+            wx_sdk.close_video_callback();
         }
         else 
         {
             // 播放中途退出，不下发游戏奖励
-            interrupt_video_callback();
+            wx_sdk.interrupt_video_callback();
         }
     });
 }
