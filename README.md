@@ -1,4 +1,7 @@
 # cocos_creator_wx_mini_game 模板工程
+
+cocos_creator请使用2.0以上版本，优化了性能的同时，针对微信小游戏开放了分包功能，同时动态加载的方式也有所不同
+
 MainProject:主域工程
 SubProject:开放域工程
 
@@ -38,7 +41,7 @@ show_modal
 
 *data.js 中动态加载了json数据表，详见tools部分
 
-开放域工程SubProject：
+开放域工程SubProject：（注：该工程打包类型为WechatGameOpenDataContext，CC_WECHATGAME == false）
 wx_open_data 开放域接口
 wx_sdk 中 message_process 在游戏启动时注册 主域消息的回调 参照launch.js的start
           get_friend_storage_success 获取好友排行榜数据成功的回调函数
