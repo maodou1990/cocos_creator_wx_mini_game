@@ -1,0 +1,562 @@
+{
+  "1": {
+    "level": 1,
+    "exp": 100,
+    "max_people": 300,
+    "bd_ts": 5000,
+    "bd_min": 1,
+    "bd_max": 1,
+    "pl_ts": 10000,
+    "pl_array": [
+      1,
+      2,
+      3
+    ]
+  },
+  "2": {
+    "level": 2,
+    "exp": 250,
+    "max_people": 600,
+    "bd_ts": 6000,
+    "bd_min": 1,
+    "bd_max": 1,
+    "pl_ts": 10000,
+    "pl_array": [
+      1,
+      2,
+      3
+    ]
+  },
+  "3": {
+    "level": 3,
+    "exp": 400,
+    "max_people": 900,
+    "bd_ts": 7000,
+    "bd_min": 1,
+    "bd_max": 1,
+    "pl_ts": 10000,
+    "pl_array": [
+      1,
+      2,
+      3
+    ]
+  },
+  "4": {
+    "level": 4,
+    "exp": 550,
+    "max_people": 1200,
+    "bd_ts": 8000,
+    "bd_min": 1,
+    "bd_max": 1,
+    "pl_ts": 10000,
+    "pl_array": [
+      1,
+      2,
+      3
+    ]
+  },
+  "5": {
+    "level": 5,
+    "exp": 700,
+    "max_people": 1500,
+    "bd_ts": 9000,
+    "bd_min": 1,
+    "bd_max": 1,
+    "pl_ts": 10000,
+    "pl_array": [
+      1,
+      2,
+      3
+    ]
+  },
+  "6": {
+    "level": 6,
+    "exp": 850,
+    "max_people": 1800,
+    "bd_ts": 10000,
+    "bd_min": 1,
+    "bd_max": 1,
+    "pl_ts": 10000,
+    "pl_array": [
+      1,
+      2,
+      3
+    ]
+  },
+  "7": {
+    "level": 7,
+    "exp": 1000,
+    "max_people": 2100,
+    "bd_ts": 11000,
+    "bd_min": 1,
+    "bd_max": 1,
+    "pl_ts": 10000,
+    "pl_array": [
+      1,
+      2,
+      3
+    ]
+  },
+  "8": {
+    "level": 8,
+    "exp": 1150,
+    "max_people": 2400,
+    "bd_ts": 12000,
+    "bd_min": 1,
+    "bd_max": 1,
+    "pl_ts": 10000,
+    "pl_array": [
+      1,
+      2,
+      3
+    ]
+  },
+  "9": {
+    "level": 9,
+    "exp": 1300,
+    "max_people": 2700,
+    "bd_ts": 13000,
+    "bd_min": 1,
+    "bd_max": 1,
+    "pl_ts": 10000,
+    "pl_array": [
+      1,
+      2,
+      3
+    ]
+  },
+  "10": {
+    "level": 10,
+    "exp": 1450,
+    "max_people": 3000,
+    "bd_ts": 14000,
+    "bd_min": 1,
+    "bd_max": 1,
+    "pl_ts": 10000,
+    "pl_array": [
+      1,
+      2,
+      3
+    ]
+  },
+  "11": {
+    "level": 11,
+    "exp": 1600,
+    "max_people": 3300,
+    "bd_ts": 15000,
+    "bd_min": 1,
+    "bd_max": 1,
+    "pl_ts": 10000,
+    "pl_array": [
+      1,
+      2,
+      3
+    ]
+  },
+  "12": {
+    "level": 12,
+    "exp": 1750,
+    "max_people": 3600,
+    "bd_ts": 16000,
+    "bd_min": 1,
+    "bd_max": 1,
+    "pl_ts": 10000,
+    "pl_array": [
+      1,
+      2,
+      3
+    ]
+  },
+  "13": {
+    "level": 13,
+    "exp": 1900,
+    "max_people": 3900,
+    "bd_ts": 17000,
+    "bd_min": 1,
+    "bd_max": 1,
+    "pl_ts": 10000,
+    "pl_array": [
+      1,
+      2,
+      3
+    ]
+  },
+  "14": {
+    "level": 14,
+    "exp": 2050,
+    "max_people": 4200,
+    "bd_ts": 18000,
+    "bd_min": 1,
+    "bd_max": 1,
+    "pl_ts": 10000,
+    "pl_array": [
+      1,
+      2,
+      3
+    ]
+  },
+  "15": {
+    "level": 15,
+    "exp": 2200,
+    "max_people": 4500,
+    "bd_ts": 19000,
+    "bd_min": 1,
+    "bd_max": 1,
+    "pl_ts": 10000,
+    "pl_array": [
+      1,
+      2,
+      3
+    ]
+  },
+  "16": {
+    "level": 16,
+    "exp": 2350,
+    "max_people": 4800,
+    "bd_ts": 20000,
+    "bd_min": 1,
+    "bd_max": 1,
+    "pl_ts": 10000,
+    "pl_array": [
+      1,
+      2,
+      3
+    ]
+  },
+  "17": {
+    "level": 17,
+    "exp": 2500,
+    "max_people": 5100,
+    "bd_ts": 21000,
+    "bd_min": 1,
+    "bd_max": 1,
+    "pl_ts": 10000,
+    "pl_array": [
+      1,
+      2,
+      3
+    ]
+  },
+  "18": {
+    "level": 18,
+    "exp": 2650,
+    "max_people": 5400,
+    "bd_ts": 22000,
+    "bd_min": 1,
+    "bd_max": 1,
+    "pl_ts": 10000,
+    "pl_array": [
+      1,
+      2,
+      3
+    ]
+  },
+  "19": {
+    "level": 19,
+    "exp": 2800,
+    "max_people": 5700,
+    "bd_ts": 23000,
+    "bd_min": 1,
+    "bd_max": 1,
+    "pl_ts": 10000,
+    "pl_array": [
+      1,
+      2,
+      3
+    ]
+  },
+  "20": {
+    "level": 20,
+    "exp": 2950,
+    "max_people": 6000,
+    "bd_ts": 24000,
+    "bd_min": 1,
+    "bd_max": 1,
+    "pl_ts": 10000,
+    "pl_array": [
+      1,
+      2,
+      3
+    ]
+  },
+  "21": {
+    "level": 21,
+    "exp": 3100,
+    "max_people": 6300,
+    "bd_ts": 25000,
+    "bd_min": 1,
+    "bd_max": 1,
+    "pl_ts": 10000,
+    "pl_array": [
+      1,
+      2,
+      3
+    ]
+  },
+  "22": {
+    "level": 22,
+    "exp": 3250,
+    "max_people": 6600,
+    "bd_ts": 26000,
+    "bd_min": 1,
+    "bd_max": 1,
+    "pl_ts": 10000,
+    "pl_array": [
+      1,
+      2,
+      3
+    ]
+  },
+  "23": {
+    "level": 23,
+    "exp": 3400,
+    "max_people": 6900,
+    "bd_ts": 27000,
+    "bd_min": 1,
+    "bd_max": 1,
+    "pl_ts": 10000,
+    "pl_array": [
+      1,
+      2,
+      3
+    ]
+  },
+  "24": {
+    "level": 24,
+    "exp": 3550,
+    "max_people": 7200,
+    "bd_ts": 28000,
+    "bd_min": 1,
+    "bd_max": 1,
+    "pl_ts": 10000,
+    "pl_array": [
+      1,
+      2,
+      3
+    ]
+  },
+  "25": {
+    "level": 25,
+    "exp": 3700,
+    "max_people": 7500,
+    "bd_ts": 29000,
+    "bd_min": 1,
+    "bd_max": 1,
+    "pl_ts": 10000,
+    "pl_array": [
+      1,
+      2,
+      3
+    ]
+  },
+  "26": {
+    "level": 26,
+    "exp": 3850,
+    "max_people": 7800,
+    "bd_ts": 30000,
+    "bd_min": 1,
+    "bd_max": 1,
+    "pl_ts": 10000,
+    "pl_array": [
+      1,
+      2,
+      3
+    ]
+  },
+  "27": {
+    "level": 27,
+    "exp": 4000,
+    "max_people": 8100,
+    "bd_ts": 31000,
+    "bd_min": 1,
+    "bd_max": 1,
+    "pl_ts": 10000,
+    "pl_array": [
+      1,
+      2,
+      3
+    ]
+  },
+  "28": {
+    "level": 28,
+    "exp": 4150,
+    "max_people": 8400,
+    "bd_ts": 32000,
+    "bd_min": 1,
+    "bd_max": 1,
+    "pl_ts": 10000,
+    "pl_array": [
+      1,
+      2,
+      3
+    ]
+  },
+  "29": {
+    "level": 29,
+    "exp": 4300,
+    "max_people": 8700,
+    "bd_ts": 33000,
+    "bd_min": 1,
+    "bd_max": 1,
+    "pl_ts": 10000,
+    "pl_array": [
+      1,
+      2,
+      3
+    ]
+  },
+  "30": {
+    "level": 30,
+    "exp": 4450,
+    "max_people": 9000,
+    "bd_ts": 34000,
+    "bd_min": 1,
+    "bd_max": 1,
+    "pl_ts": 10000,
+    "pl_array": [
+      1,
+      2,
+      3
+    ]
+  },
+  "31": {
+    "level": 31,
+    "exp": 4600,
+    "max_people": 9300,
+    "bd_ts": 35000,
+    "bd_min": 1,
+    "bd_max": 1,
+    "pl_ts": 10000,
+    "pl_array": [
+      1,
+      2,
+      3
+    ]
+  },
+  "32": {
+    "level": 32,
+    "exp": 4750,
+    "max_people": 9600,
+    "bd_ts": 36000,
+    "bd_min": 1,
+    "bd_max": 1,
+    "pl_ts": 10000,
+    "pl_array": [
+      1,
+      2,
+      3
+    ]
+  },
+  "33": {
+    "level": 33,
+    "exp": 4900,
+    "max_people": 9900,
+    "bd_ts": 37000,
+    "bd_min": 1,
+    "bd_max": 1,
+    "pl_ts": 10000,
+    "pl_array": [
+      1,
+      2,
+      3
+    ]
+  },
+  "34": {
+    "level": 34,
+    "exp": 5050,
+    "max_people": 10200,
+    "bd_ts": 38000,
+    "bd_min": 1,
+    "bd_max": 1,
+    "pl_ts": 10000,
+    "pl_array": [
+      1,
+      2,
+      3
+    ]
+  },
+  "35": {
+    "level": 35,
+    "exp": 5200,
+    "max_people": 10500,
+    "bd_ts": 39000,
+    "bd_min": 1,
+    "bd_max": 1,
+    "pl_ts": 10000,
+    "pl_array": [
+      1,
+      2,
+      3
+    ]
+  },
+  "36": {
+    "level": 36,
+    "exp": 5350,
+    "max_people": 10800,
+    "bd_ts": 40000,
+    "bd_min": 1,
+    "bd_max": 1,
+    "pl_ts": 10000,
+    "pl_array": [
+      1,
+      2,
+      3
+    ]
+  },
+  "37": {
+    "level": 37,
+    "exp": 5500,
+    "max_people": 11100,
+    "bd_ts": 41000,
+    "bd_min": 1,
+    "bd_max": 1,
+    "pl_ts": 10000,
+    "pl_array": [
+      1,
+      2,
+      3
+    ]
+  },
+  "38": {
+    "level": 38,
+    "exp": 5650,
+    "max_people": 11400,
+    "bd_ts": 42000,
+    "bd_min": 1,
+    "bd_max": 1,
+    "pl_ts": 10000,
+    "pl_array": [
+      1,
+      2,
+      3
+    ]
+  },
+  "39": {
+    "level": 39,
+    "exp": 5800,
+    "max_people": 11700,
+    "bd_ts": 43000,
+    "bd_min": 1,
+    "bd_max": 1,
+    "pl_ts": 10000,
+    "pl_array": [
+      1,
+      2,
+      3
+    ]
+  },
+  "40": {
+    "level": 40,
+    "exp": 0,
+    "max_people": 12000,
+    "bd_ts": 44000,
+    "bd_min": 1,
+    "bd_max": 1,
+    "pl_ts": 10000,
+    "pl_array": [
+      1,
+      2,
+      3
+    ]
+  }
+}

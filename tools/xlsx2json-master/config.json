@@ -1,0 +1,11 @@
+{
+  "xlsx": {
+    "head": 2,
+    "src": "./../table/*.xlsx",
+    "dest": "./../../MainProject/assets/resources/table"
+  },
+  "ts": false,
+  "json": {
+    "uglify": false
+  }
+}

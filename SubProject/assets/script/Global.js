@@ -1,0 +1,1 @@
+window.wx_open_data = require('wx_open_data');
