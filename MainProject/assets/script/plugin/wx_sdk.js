@@ -10,6 +10,11 @@ window.wx_sdk =
         }
     },
 
+    //没有更新要登录账户时的回调
+    no_update_callback:function(){
+        console.log('no_update_callback:');
+    },
+
     //成功获取微信用户数据回调
     get_user_info_callback:function(user_info){
         console.log('get_user_info_callback:',JSON.stringify(user_info));

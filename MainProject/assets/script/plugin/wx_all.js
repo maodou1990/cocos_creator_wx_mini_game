@@ -1,29 +1,31 @@
-var show_toast = function(title,success=function(){},fail=function(){})
+var show_toast = function(title,success=undefined,fail=undefined)
 {
     if(!CC_WECHATGAME)
         return;
 
-    window.wx.showToast({
+    let obj = {
         title:title,
         mask:true,
-        success:success,
-        fail:fail
-    });
+    };
+    (typeof(success) == 'function') && (obj.success = success);
+    (typeof(fail) == 'function') && (obj.fail = fail);
+    window.wx.showToast(obj);
 }
 exports.show_toast = show_toast;
 
-var show_modal = function(title,content,confirmText,showCancel,success)
+var show_modal = function(title,content,confirmText,showCancel,success=undefined)
 {
     if(!CC_WECHATGAME)
         return;
 
-    window.wx.showModal({
+    let obj = {
         title: title,
         content: content,
         confirmText: confirmText,
         showCancel: showCancel,
-        success:success
-    });
+    };
+    (typeof(success) == 'function') && (obj.success = success);
+    window.wx.showModal(obj);
 }
 exports.show_modal = show_modal;
 
@@ -83,7 +85,7 @@ var get_user_info = function(){
     if (sdkVersion >= "2.0.1") {
         var button = window.wx.createUserInfoButton({
             type: 'text',
-            text: '',
+            text: '开始游戏',
             style: {
                 left: width*wx_sdk.config.user_info_btn.x,
                 top: height*wx_sdk.config.user_info_btn.y,
@@ -105,7 +107,6 @@ var get_user_info = function(){
     }
     else 
     {
-        console.log('333333333');
         window.wx.getUserInfo({
             withCredentials: true,
             success: res => {
@@ -164,13 +165,15 @@ var login = function()
         return;
 
     window.wx.getSetting({
-        success: function (res) 
+        success: res=>
         {
             var authSetting = res.authSetting;
             if (authSetting['scope.userInfo'] === true) 
             {
                 // 用户已授权，可以直接调用相关 API
-                wx_login();
+                //wx_login();
+                wx_sdk.first_time_get_user_info(res);
+                get_user_info();
             } 
             else if (authSetting['scope.userInfo'] === false)
             {
@@ -185,7 +188,7 @@ var login = function()
                 get_user_info();
             }
         },
-        fail:function(res)
+        fail:res=>
         {
             console.log('wx getSetting fail:'+res);
         }
@@ -217,7 +220,7 @@ var set_open_data = function(kvdata)
         success:function(){
             console.log('setUserCloudStorage success!');
         },
-        fail:function(res){
+        fail:res=>{
             console.log('setUserCloudStorage fail! msg:'+res.errMsg);
         }
 
@@ -254,14 +257,14 @@ var load_account = function(){
     
     window.wx.getStorage({
         key:'account',
-        success:function(res)
+        success:res=>
         {
             wx_sdk.load_account_success_callback(res);
         },
-        fail:function(res)
+        fail:res=>
         {
-            wx_sdk.load_account_fail_callback(res);
             save_account();
+            wx_sdk.load_account_fail_callback(res);
         }
     });
 }
@@ -285,6 +288,7 @@ var update_game = function()
           //console.log("hasUpdate:"+res.hasUpdate);
           if(!res.hasUpdate)
           {
+            wx_sdk.no_update_callback();
             login();
           }
         });
@@ -303,7 +307,7 @@ var update_game = function()
 exports.update_game = update_game;
 
 /*
-*
+*   激励视频
 */
 
 function create_video_ad_impl(adUnitId)
@@ -345,12 +349,57 @@ function create_video_ad_impl(adUnitId)
 }
 
 
-
 var show_video_ad = function(adUnitId)
 {
     create_video_ad_impl(adUnitId);
 }
-exports.show_banner_ad = show_banner_ad;
+exports.show_video_ad = show_video_ad;
 
+/*
+*   分享
+*/
 
+var show_share_menu = function(withShareTicket = true,success = undefined,fail = undefined)
+{
+    if(!CC_WECHATGAME)
+        return;
+    
+    let obj = {
+        withShareTicket:withShareTicket,
+    };
+    (typeof(success) == 'undefined') && (obj.success = success);
+    (typeof(fail) == 'undefined') && (obj.fail = fail);
+    window.wx.showShareMenu(obj);
+}
+exports.show_share_menu = show_share_menu;
+
+var on_share_app_message = function(imageUrl,query,success = undefined,fail = undefined,title = undefined)
+{
+    if(!CC_WECHATGAME)
+        return;
+    console.log('onShareAppMessage');
+    let succ_func = function(res)
+    {
+        console.log('res:',res);
+        (typeof(success) == 'function') && success(res);
+    };
+
+    let fail_func = function(res)
+    {
+        console.log('resErr分享失败:',res);
+        (typeof(fail) == 'function') && fail(res);
+    }
+
+    let obj = {
+        imageUrl:imageUrl,
+        query:query,
+        success:succ_func,
+        fail:fail_func,
+    };
+    (typeof(title) == 'string') && (obj.title = title);
+    window.wx.onShareAppMessage(function(){
+        return obj;
+    });
+}
+exports.on_share_app_message = on_share_app_message;
 
