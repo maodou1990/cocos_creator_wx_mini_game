@@ -51,7 +51,7 @@ wx_sdk 中 message_process 在游戏启动时注册 主域消息的回调 参照
 工具tools：
 表格 table下 table.xlsx 每个sheet是一张表
 使用开源的xlsx2json工具转换成json资源文件放到主域工程的resources文件夹下
-  这里我做了点改动，DataType为ID时 该字段作为key时为string，作为value时作为Number 
+这里我做了点改动，DataType为ID时 该字段作为key时为string，作为value时作为Number 
 
 Server：（未实现）
 小游戏服务端，Nodejs实现，准备使用WebSocket
