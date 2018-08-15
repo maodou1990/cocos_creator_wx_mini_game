@@ -36,8 +36,18 @@ set_open_data  //向开放数据域提交数据，用于开放数据域显示好
 show_toast
 show_modal
 
-之后会加入：
-分享
+分享：
+on_share_app_message
+share_app_message
+show_share_menu
+get_share_info
+
+点击分享链接
+on_show
+get_launch_options_sync
+
+离开小游戏
+exit_game
 
 *data.js 中动态加载了json数据表，详见tools部分
 

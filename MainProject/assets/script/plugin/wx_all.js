@@ -179,6 +179,7 @@ var login = function()
             {
                 // 用户已拒绝授权，再调用相关 API 或者 window.wx.authorize 会失败，需要引导用户到设置页面打开授权开关
                 console.log("用户拒绝了获取信息的授权！");
+                show_toast('用户拒绝了获取信息的授权！',exit_game);
             } 
             else 
             {
@@ -402,4 +403,87 @@ var on_share_app_message = function(imageUrl,query,success = undefined,fail = un
     });
 }
 exports.on_share_app_message = on_share_app_message;
+
+var share_app_message = function(imageUrl,query,success = undefined,fail = undefined,title = undefined)
+{
+    if(!CC_WECHATGAME)
+        return;
+    console.log('shareAppMessage');
+    let succ_func = function(res)
+    {
+        console.log('res:',res);
+        (typeof(success) == 'function') && success(res);
+    };
+
+    let fail_func = function(res)
+    {
+        console.log('resErr分享失败:',res);
+        (typeof(fail) == 'function') && fail(res);
+    }
+
+    let obj = {
+        imageUrl:imageUrl,
+        query:query,
+        success:succ_func,
+        fail:fail_func,
+    };
+    (typeof(title) == 'string') && (obj.title = title);
+    window.wx.shareAppMessage(function(){
+        return obj;
+    });
+}
+exports.share_app_message = share_app_message;
+
+var get_share_info = function(shareTicket = true)
+{
+    if(!CC_WECHATGAME)
+        return;
+
+    let obj = {
+        shareTicket:shareTicket,
+        success:res=>{
+            wx_sdk.get_share_info_success(res);
+        },
+        fail:res=>{
+            wx_sdk.get_share_info_fail(res);
+        }
+    };
+    window.wx.getShareInfo(obj);
+}
+exports.get_share_info = get_share_info;
+
+var exit_game = function()
+{
+    if(!CC_WECHATGAME)
+        return;
+    
+    window.wx.exitMiniProgram({
+        success:res=>{
+            console.log('exit_mini_game success!');
+        },
+        fail:res=>{
+            console.log('exit_mini_game fail! res:',res);
+        }
+    });
+}
+exports.exit_game = exit_game;
+
+var on_show = function(){
+    if(!CC_WECHATGAME)
+        return;
+    
+    window.wx.onShow(function(res){
+        wx_sdk.on_show_callback(res);
+    });
+}
+exports.on_show = on_show;
+
+var get_launch_options_sync = function(){
+    if(!CC_WECHATGAME)
+        return;
+
+    var res = window.wx.getLaunchOptionsSync();
+    return res;
+}
+exports.get_launch_options_sync = get_launch_options_sync;
 

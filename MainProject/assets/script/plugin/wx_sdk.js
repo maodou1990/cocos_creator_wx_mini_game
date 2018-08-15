@@ -11,7 +11,8 @@ window.wx_sdk =
     },
 
     //没有更新要登录账户时的回调
-    no_update_callback:function(){
+    no_update_callback:function()
+    {
         console.log('no_update_callback:');
     },
 
@@ -40,7 +41,7 @@ window.wx_sdk =
         console.log('load_account_fail_callback:',JSON.stringify(res));
     },
 
-    //激励视频正常结束关闭回调s
+    //激励视频正常结束关闭回调
     close_video_callback:function(res){
         console.log('close_video_callback:',JSON.stringify(res));
     },   
@@ -49,4 +50,18 @@ window.wx_sdk =
     interrupt_video_callback:function(res){
         console.log('interrupt_video_callback:',JSON.stringify(res));
     },   
+
+    //获取分享信息成功回调
+    get_share_info_success:function(res){
+        console.log('get_share_info_success:',JSON.stringify(res));
+    },
+
+    //获取分享信息失败回调
+    get_share_info_fail:function(res){
+        console.log('get_share_info_fail:',JSON.stringify(res));
+    },
+
+    on_show_callback:function(res){
+        console.log('on_show_callback:',JSON.stringify(res));
+    },
 }
