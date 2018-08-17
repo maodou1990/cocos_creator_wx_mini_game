@@ -3,14 +3,14 @@
 
 cocos_creator请使用2.0以上版本，优化了性能的同时，针对微信小游戏开放了分包功能，同时动态加载的方式也有所不同
 
-## 组织结构 ##
+## 组织结构：
 
  1. MainProject:主域工程 
  2. SubProject:开放域工程 
  3. tools：工具 
  4. Server：服务端（未完成）
 
-## 主域工程MainProject：##
+## 主域工程MainProject：
 
 登陆流程基本完善，游戏启动时调用 
 
@@ -62,7 +62,7 @@ exit_game
 
 *data.js 中动态加载了json数据表，详见tools部分
 
-## 开放域工程SubProject：##
+## 开放域工程SubProject：
 （注：该工程打包类型为WechatGameOpenDataContext，CC_WECHATGAME == false）
 
  - wx_open_data 开放域接口
@@ -72,20 +72,20 @@ message_process 在游戏启动时注册 主域消息的回调 参照launch.js�
 
 *launch.js中_drawRankList 动态加载resources下prefab的方式
 
-## 工具tools：##
+## 工具tools：
 
  1. 表格 table下 table.xlsx 每个sheet是一张表
  2. 使用开源的xlsx2json工具转换成json资源文件放到主域工程的resources文件夹下
 
 *这里我做了点改动，DataType为ID时 该字段作为key时为string，作为value时作为Number
 
-## Server：（未实现）##
+## Server：（未实现）
 
 小游戏服务端，Nodejs实现，准备使用WebSocket，mongodb做数据库
 
 
 
-## 参考资料: ##
+## 参考资料: 
 
  - onfire.js:https://github.com/hustcc/onfire.js
  - xlsx2json:https://github.com/koalaylj/xlsx2json
