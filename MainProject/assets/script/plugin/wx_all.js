@@ -428,9 +428,7 @@ var share_app_message = function(imageUrl,query,success = undefined,fail = undef
         fail:fail_func,
     };
     (typeof(title) == 'string') && (obj.title = title);
-    window.wx.shareAppMessage(function(){
-        return obj;
-    });
+    window.wx.shareAppMessage(obj);
 }
 exports.share_app_message = share_app_message;
 
